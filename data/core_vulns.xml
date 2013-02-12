@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<joomla version="3.5">
+		<vulnerability>
+			<title>WordPress 3.5 to 3.3.2 Cross-Site Scripting (XSS) (Issue 3)</title>
+			<reference>https://github.com/wpscanteam/wpscan/wiki/WordPress-3.5-Issues</reference>
+			<type>XSS</type>
+		</vulnerability>
+		<vulnerability>
+			<title>XMLRPC Pingback API Internal/External Port Scanning</title>
+			<reference>https://github.com/FireFart/WordpressPingbackPortScanner</reference>
+			<type>UNKNOWN</type>
+		</vulnerability>
+		<vulnerability>
+			<title>WordPress XMLRPC pingback additional issues</title>
+			<reference>http://lab.onsec.ru/2013/01/wordpress-xmlrpc-pingback-additional.html</reference>
+			<type>UNKNOWN</type>
+		</vulnerability>
+	</joomla>
+</vulnerabilities>
