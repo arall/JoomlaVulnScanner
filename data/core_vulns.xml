@@ -1,21 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<joomla version="3.5">
+	<joomla version="2.5.1">
 		<vulnerability>
-			<title>WordPress 3.5 to 3.3.2 Cross-Site Scripting (XSS) (Issue 3)</title>
-			<reference>https://github.com/wpscanteam/wpscan/wiki/WordPress-3.5-Issues</reference>
-			<type>XSS</type>
+			<title>Joomla 2.5.0-2.5.1 Time Based SQL Injection Exploit</title>
+			<reference>http://www.exploit-db.com/exploits/18618/</reference>
+			<type>Time-Based SQLi</type>
 		</vulnerability>
+	</joomla>
+	<joomla version="2.5.0">
 		<vulnerability>
-			<title>XMLRPC Pingback API Internal/External Port Scanning</title>
-			<reference>https://github.com/FireFart/WordpressPingbackPortScanner</reference>
-			<type>UNKNOWN</type>
+			<title>Joomla 2.5.0-2.5.1 Time Based SQL Injection Exploit</title>
+			<reference>http://www.exploit-db.com/exploits/18618/</reference>
+			<type>Time-Based SQLi</type>
 		</vulnerability>
+	</joomla>
+	<joomla version="1.6.3">
 		<vulnerability>
-			<title>WordPress XMLRPC pingback additional issues</title>
-			<reference>http://lab.onsec.ru/2013/01/wordpress-xmlrpc-pingback-additional.html</reference>
-			<type>UNKNOWN</type>
+			<title>Joomla 1.6.3 CSRF Exploit</title>
+			<reference>http://www.exploit-db.com/exploits/17496/</reference>
+			<type>CSRF</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="1.6.3">
+		<vulnerability>
+			<title>Joomla! 1.6 Multiple SQL Injection Vulnerabilities</title>
+			<reference>http://www.exploit-db.com/exploits/16992/</reference>
+			<type>SQLi</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="1.5.12">
+		<vulnerability>
+			<title>Joomla 1.5.12 read/exec remote files</title>
+			<reference>http://www.exploit-db.com/exploits/11263/</reference>
+			<type>Read/exec remote files</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="&lt;=1.5">
+		<vulnerability>
+			<title>Joomla 1.5 URL Redirecting Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/14722/</reference>
+			<type>Redirection</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="&lt;=1.5">
+		<vulnerability>
+			<title>0day Joomla Core &lt;= 1.5.x com_component DOS</title>
+			<reference>http://www.exploit-db.com/exploits/10820/</reference>
+			<type>DoS</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="&lt;=1.5.8">
+		<vulnerability>
+			<title>Local Directory Traversal</title>
+			<reference>http://www.exploit-db.com/exploits/7691/</reference>
+			<type>Local Directory Traversal</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="1.5">
+		<vulnerability>
+			<title>Joomla 1.5.x (Token) Remote Admin Change Password Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/6234/</reference>
+			<type>Remote Admin Password Change</type>
 		</vulnerability>
 	</joomla>
 </vulnerabilities>

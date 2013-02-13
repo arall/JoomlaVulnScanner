@@ -8,12 +8,15 @@ echo "<pre>";
 $host = "http://localhost/";
 $adminPath = "/administrator/components/";
 
+echo "[+] Scanning ".$host."\n";
+
 //Joomla https://www.gavick.com/magazine/how-to-check-the-version-of-joomla.html
 $siteSource = file_get_contents($host);
 $siteTemplateCss = file_get_contents($host."/templates/system/css/template.css");
 $siteSystemCss = file_get_contents($host."/templates/system/css/system.css");
 $siteMootools = file_get_contents($host."/media/system/js/mootools-more.js");
 $siteLang = file_get_contents($host."/language/en-GB/en-GB.ini");
+$joomlaVersion = "Unknown";
 //Joomla 1.0.x
 if(strstr($siteSource, '2005 - 2007 Open Source Matters')){
 	$joomlaVersion = "1.0.x";
@@ -61,7 +64,20 @@ if(is_object($siteXmlLang )){
 if(strstr($siteMootools, 'MooTools.More={version:"1.4.0.1"') && !$joomlaVersion){
 	$joomlaVersion = "3.0 alpha 2";
 }
-echo "[+] Joomla  ".$joomlaVersion."\n";
+echo "[+] Joomla ".$joomlaVersion."\n";
+//Find vulns
+$xmlCore = simplexml_load_string(file_get_contents("data/core_vulns.xml"));
+if(count($xmlCore->joomla)){
+	foreach($xmlCore->joomla as $joomla){
+		//Vuln Version?
+		if(matchVersion($joomlaVersion, $joomla['version'])){
+			//Show vulns
+			foreach($joomla->vulnerability as $vulnerability){
+				echo "    [!] <a href='".$vulnerability->reference."'>".$vulnerability->title."</a>\n";
+			}
+		}
+	}
+}
 
 //Components
 $xmlComponents = simplexml_load_string(file_get_contents("data/components_vulns.xml"));
@@ -80,7 +96,7 @@ if(count($xmlComponents->component)){
 			//Find vulns
 			if(count($component->vulnerability)){
 				foreach($component->vulnerability as $vulnerability){
-					//Version vulnerable?
+					//Vuln Version?
 					if(matchVersion($remoteXmlComponent->version, $vulnerability->version)){
 						//Show vuln
 						echo "    [!] <a href='".$vulnerability->reference."'>".$vulnerability->title."</a>\n";
@@ -104,8 +120,8 @@ function get_url_contents($url){
 }
 
 function matchVersion($version, $versionString){
-	$version = trim($version);
-	$versionString = trim($versionString);
+	$version = html_entity_decode(trim(strtolower($version)));
+	$versionString = html_entity_decode(trim(strtolower($versionString)));
 	if(strstr($versionString, "||")){
 		$versions = explode("||", $versionString);
 		if(count($versions)){
@@ -115,6 +131,9 @@ function matchVersion($version, $versionString){
 				}
 			}
 		}
+	}
+	if(strstr($versionString, "x")){
+		//TODO
 	}
 	if(!strstr($versionString, "<") && !strstr($versionString, ">")){
 		return version_compare($version, $versionString, "==");
