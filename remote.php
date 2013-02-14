@@ -141,7 +141,8 @@ function matchVersion($version, $versionString){
 		}
 	}
 	if(strstr($versionString, "x")){
-		//TODO
+		$versionString = str_replace("x", "999999999", $versionString);
+		return version_compare($version, str_replace("<=", "", $versionString), "<=");
 	}
 	if(!strstr($versionString, "<") && !strstr($versionString, ">")){
 		return version_compare($version, $versionString, "==");
