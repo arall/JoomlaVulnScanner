@@ -77,8 +77,9 @@ if(count($xmlCore->joomla)){
 			}
 		}
 	}
+}else{
+	echo "[ ] Error loading core database";
 }
-
 //Components
 $xmlComponents = simplexml_load_string(file_get_contents("data/components_vulns.xml"));
 if(count($xmlComponents->component)){
@@ -105,9 +106,12 @@ if(count($xmlComponents->component)){
 			}
 		}
 	}
+}else{
+	echo "[ ] Error loading components database";
 }
 
 function get_url_contents($url){
+		//echo "[ ] ".$url."\n";
         $crl = curl_init();
         curl_setopt($crl, CURLOPT_URL, $url);
         curl_setopt($crl, CURLOPT_RETURNTRANSFER, 1);
@@ -120,6 +124,10 @@ function get_url_contents($url){
 }
 
 function matchVersion($version, $versionString){
+	//echo "[ ] ".$version." vs ".$versionString."\n";
+	if(!$versionString){
+		return 1;
+	}
 	$version = html_entity_decode(trim(strtolower($version)));
 	$versionString = html_entity_decode(trim(strtolower($versionString)));
 	if(strstr($versionString, "||")){
