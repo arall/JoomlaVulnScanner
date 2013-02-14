@@ -125,11 +125,11 @@ function get_url_contents($url){
 
 function matchVersion($version, $versionString){
 	//echo "[ ] ".$version." vs ".$versionString."\n";
-	if(!$versionString){
-		return 1;
-	}
 	$version = html_entity_decode(trim(strtolower($version)));
 	$versionString = html_entity_decode(trim(strtolower($versionString)));
+	if(!$versionString || !$version || $version=="unknown" || $versionString=="unknown"){
+		return 1;
+	}
 	if(strstr($versionString, "||")){
 		$versions = explode("||", $versionString);
 		if(count($versions)){
