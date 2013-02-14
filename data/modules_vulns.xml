@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<module name="mod_simpleFileUpload">
+		<vulnerability>
+			<title>Simple File Upload v1.3 Joomla Module Remote Code Execution</title>
+			<reference>http://www.exploit-db.com/exploits/18287/</reference>
+			<type>Remote Code Execution</type>
+			<version>&lt;=1.3</version>
+		</vulnerability>
+	</module>
+	<module name="mod_simplefilelister">
+		<vulnerability>
+			<title>Joomla Simple File Lister module &lt;= 1.0 Directory Traversal Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/18287/</reference>
+			<type>Remote Code Execution</type>
+			<version>&lt;=1.0</version>
+			<url>/index.php?option=com_content&amp;view=article&amp;id=[A VALID ID]&amp;Itemid=[A VALID ID]&amp;sflaction=dir&amp;sflDir=../../../</url>
+		</vulnerability>
+	</module>
+</vulnerabilities>

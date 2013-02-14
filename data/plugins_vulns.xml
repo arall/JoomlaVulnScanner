@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<plugin name="nn_qp">
+		<vulnerability>
+			<title>NoNumber Framework Joomla! Plugin Multiple Vulnerabilities</title>
+			<reference>http://www.exploit-db.com/exploits/17995/</reference>
+			<type>Multiple Vulnerabilities</type>
+		</vulnerability>
+	</plugin>
+</vulnerabilities>
