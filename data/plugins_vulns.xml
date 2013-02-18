@@ -8,4 +8,31 @@
 			<type>Multiple Vulnerabilities</type>
 		</vulnerability>
 	</plugin>
+	<plugin name="cdscriptegrator">
+		<vulnerability>
+			<title>Scriptegrator plugin for Joomla! 1.5 0day File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17394/</reference>
+			<type>LFI</type>
+			<joomlaVersion>1.5</joomlaVersion>
+			<url>/plugins/system/cdscriptegrator/libraries/highslide/css/cssloader.php?files[]=LFI</url>
+		</vulnerability>
+	</plugin>
+	<plugin name="tiny_mce">
+		<vulnerability>
+			<title>Joomla 1.5.12 TinyBrowser File Upload Code Execution</title>
+			<reference>http://www.exploit-db.com/exploits/16906/</reference>
+			<type>File Upload Code Exec</type>
+			<joomlaVersion>1.5.12</joomlaVersion>
+			<url>/plugins/editors/tinymce/jscripts/tiny_mce/plugins/tinybrowser/upload.php?type=file&amp;folder=</url>
+		</vulnerability>
+	</plugin>
+	<plugin name="captcha">
+		<vulnerability>
+			<title>Joomla Captcha Plugin &lt;= 4.5.1 Local File Disclosure Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15958/</reference>
+			<type>LFI</type>
+			<joomlaVersion>&lt;= 4.5.1</joomlaVersion>
+			<url>/plugins/system/captcha/playcode.php?lng=LFI</url>
+		</vulnerability>
+	</plugin>
 </vulnerabilities>

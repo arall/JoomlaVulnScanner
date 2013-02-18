@@ -83,15 +83,22 @@ function findVulns($path, $domain){
 			}
 		}
 	    //Editors
+	    //tinybrowser
 	    $cPath = $path.$domain."/httpdocs/plugins/editors/tinymce/jscripts/tiny_mce/plugins/tinybrowser/config_tinybrowser.php";
 		if(is_file($cPath)){
 			$data = read_file($cPath);
 			$passwordHash = between($data, "password']) != '", "'");
 			if($passwordHash){
-	        	echo "[-] Plugin TinyMCE is already fixed\n";
+	        	//echo "[-] Plugin TinyMCE is already fixed\n";
 	        }else{
 		        echo "[!] Plugin TinyMCE is vulnerable\n";
 	        }
+	    }
+	    //FCKeditor
+	    $cPath = $path.$domain."/httpdocs/mambots/editors/fckeditor/editor/filemanager/browser/default/browser.html";
+	    $cPath2 = $path.$domain."/httpdocs/mambots/editors/fckeditor/editor/filemanager/connectors/uploadtest.html";
+		if(is_file($cPath)||is_file($cPath2)){
+	        echo "[-] FCKeditor! ";
 	    }
 	    echo "\n";
 	}
@@ -100,7 +107,7 @@ function findVulns($path, $domain){
 function matchVersion($version, $versionString){
 	$version = html_entity_decode(trim(strtolower($version)));
 	$versionString = html_entity_decode(trim(strtolower($versionString)));
-	if(!$versionString || !$version || $version=="unknown" || $versionString=="unknown"){
+	if(!$versionString || !$version || $version=="unknown" || $versionString=="unknown" || $version=="157"){
 		return 1;
 	}
 	if(strstr($versionString, "||")){

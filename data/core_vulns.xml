@@ -29,11 +29,37 @@
 			<type>SQLi</type>
 		</vulnerability>
 	</joomla>
+	<joomla version="1.6">
+		<vulnerability>
+			<title>Joomla! v1.5 + v1.6 JFilterInput XSS Bypass</title>
+			<reference>http://www.exploit-db.com/exploits/16091/</reference>
+			<type>XSS</type>
+		</vulnerability>
+		<vulnerability>
+			<title>Joomla! Spam Mail Relay Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15979/</reference>
+			<type>Other</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="1.5.22">
+		<vulnerability>
+			<title>Joomla! Spam Mail Relay Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15979/</reference>
+			<type>Other</type>
+		</vulnerability>
+	</joomla>
 	<joomla version="1.5.12">
 		<vulnerability>
 			<title>Joomla 1.5.12 read/exec remote files</title>
 			<reference>http://www.exploit-db.com/exploits/11263/</reference>
 			<type>Read/exec remote files</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="1.5">
+		<vulnerability>
+			<title>Joomla! v1.5 + v1.6 JFilterInput XSS Bypass</title>
+			<reference>http://www.exploit-db.com/exploits/16091/</reference>
+			<type>XSS</type>
 		</vulnerability>
 	</joomla>
 	<joomla version="&lt;=1.5">
@@ -52,12 +78,12 @@
 	</joomla>
 	<joomla version="&lt;=1.5.8">
 		<vulnerability>
-			<title>Local Directory Traversal</title>
+			<title>Joomla &lt;= 1.5.8 (xstandard editor) Local Directory Traversal Vulnerability</title>
 			<reference>http://www.exploit-db.com/exploits/7691/</reference>
 			<type>Local Directory Traversal</type>
 		</vulnerability>
 	</joomla>
-	<joomla version="1.5">
+	<joomla version="1.5.x">
 		<vulnerability>
 			<title>Joomla 1.5.x (Token) Remote Admin Change Password Vulnerability</title>
 			<reference>http://www.exploit-db.com/exploits/6234/</reference>

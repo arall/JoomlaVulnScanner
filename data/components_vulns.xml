@@ -18,6 +18,15 @@
 			<url>/?layout=modal&amp;option=com_jooproperty&amp;product_id=%22%20onmouseover%3dprompt%28%29%20bad%3d%22&amp;view=booking</url>
 		</vulnerability>
 	</component>
+	<component name="com_events">
+		<vulnerability>
+			<title>Joomla JEvents 1.5.0 SQL Injection</title>
+			<reference>http://packetstormsecurity.com/files/119361/Joomla-JEvents-1.5.0-SQL-Injection.html</reference>
+			<type>SQLi</type>
+			<version>1.5.0</version>
+			<url>/index.php?option=com_events&amp;task=view_year&amp;year=SQL</url>
+		</vulnerability>
+	</component>
 	<component name="com_spidercatalog">
 		<vulnerability>
 			<title>Joomla Spider Catalog (index.php, product_id parameter) SQL Injection Vulnerability</title>
@@ -278,7 +287,7 @@
 			<url>/index.php?option=com_timereturns&amp;view=timereturns&amp;id=</url>
 		</vulnerability>
 	</component>
-	<component name="com_timereturns">
+	<component name="com_joomtouch">
 		<vulnerability>
 			<title>Joomla JoomTouch Component Local File Inclusion Vulnerability</title>
 			<reference>http://www.exploit-db.com/exploits/17674/</reference>
@@ -287,14 +296,259 @@
 			<url>/index.php?option=com_joomtouch&amp;controller=LFI</url>
 		</vulnerability>
 	</component>
-	<!-- END OF PAGE 2 OF EXPLOIT-DB, TO BE CONTINUED :D -->
+	<component name="com_esearch">
+		<vulnerability>
+			<title>TNR Enhanced Joomla Search &lt;= SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17646/</reference>
+			<type>SQLi</type>
+			<version>&lt;=3.0.0</version>
+			<url>/index.php?search=NoGe&amp;option=com_esearch&amp;searchId=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_jdirectory">
+		<vulnerability>
+			<title>Joomla Component (com_jdirectory) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17603/</reference>
+			<type>SQLi</type>
+			<url>/component/option,com_jdirectory/task,show_content/contentid,1067/catid,26/directory,1/Itemid,0SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_obsuggest">
+		<vulnerability>
+			<title>Joomla Component (com_obSuggest) Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17591/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_obsuggest&amp;controller=LFI%00</url>
+		</vulnerability>
+	</component>
+	<component name="com_jesubmit">
+		<vulnerability>
+			<title>Joomla Component JE K2 Story Submit Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17556/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_jesubmit&amp;view=LFI%00</url>
+		</vulnerability>
+	</component>
+	<component name="com_rsappt_pro2">
+		<vulnerability>
+			<title>Appointment Booking Pro Joomla Component LFI Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17553/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_rsappt_pro2&amp;view=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_sobi2">
+		<vulnerability>
+			<title>SOBI2 2.9.3.2 Joomla! Component Blind SQL Injections</title>
+			<reference>http://www.exploit-db.com/exploits/17530/</reference>
+			<type>Blind SQLi</type>
+			<version>&lt;=2.9.3.2</version>
+			<url>/index.php?option=com_sobi2&amp;tmpl=component&amp;tag=SQL</url>
+			<url>/index.php?option=com_sobi2&amp;tmpl=component&amp;letter=</url>
+		</vulnerability>
+	</component>
+	<component name="com_xmap">
+		<vulnerability>
+			<title>Xmap 1.2.11 Joomla Component Blind SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/17525/</reference>
+			<type>Blind SQLi</type>
+			<version>&lt;=1.2.11</version>
+			<url>/index.php?option=com_xmap&amp;tmpl=component&amp;ztemid=999&amp;view=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_mdigg">
+		<vulnerability>
+			<title>Joomla mdigg Component 2.2.8 Blind SQL Injection</title>
+			<reference>http://packetstormsecurity.com/files/73442/Joomla-mdigg-Component-2.2.8-Blind-SQL-Injection.html</reference>
+			<type>Blind SQLi</type>
+			<version>&lt;=2.2.8</version>
+			<url>/index.php?option=com_mdigg&amp;act=story_lists&amp;task=view&amp;category=1SQL</url>
+		</vulnerability>
+		<vulnerability>
+			<title>Joomla mdigg Component SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17464/</reference>
+			<type>SQLi</type>
+			<url>/?act=story_lists&amp;task=item&amp;link_id=1SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_calcbuilder">
+		<vulnerability>
+			<title>Joomla Component Calc Builder (id) Blind SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17414/</reference>
+			<type>Blind SQLi</type>
+			<version>0.0.1</version>
+			<url>/index.php?option=com_calcbuilder&amp;controller=calcbuilder&amp;format=raw&amp;id=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_garyscookbook">
+		<vulnerability>
+			<title>Joomla GarysCookBook 3.0.x Shell Upload</title>
+			<reference>http://packetstormsecurity.com/files/119732/Joomla-GarysCookBook-3.0.x-Shell-Upload.html</reference>
+			<type>File Upload</type>
+			<version>3.0.x</version>
+			<url>/index.php?option=com_garyscookbook&amp;func=newItem</url>
+		</vulnerability>
+	</component>
+	<component name="com_incapsula">
+		<vulnerability>
+			<title>Joomla Incapsula Component &lt;= 1.4.6_b Reflected Cross-Site Scripting Vulnerability</title>
+			<reference>http://packetstormsecurity.com/files/119364/Joomla-Incapsula-1.4.6_b-Cross-Site-Scripting.html</reference>
+			<type>XSS</type>
+			<version>&lt;=1.4.6</version>
+			<url>/administrator/components/com_incapsula/assets/tips/en/Security.php?token="><script>alert(document.cookie)</script></url>
+		</vulnerability>
+	</component>
+	<component name="com_acooldebate">
+		<vulnerability>
+			<title>A Cool Debate 1.0.3 Component Joomla Local File Inclusion</title>
+			<reference>http://www.exploit-db.com/exploits/17411/</reference>
+			<type>LFI</type>
+			<version>1.0.3</version>
+			<url>/index.php?option=com_acooldebate&amp;controller=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_joomnik">
+		<vulnerability>
+			<title>Joomla Component com_joomnik SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17341/</reference>
+			<type>SQLi</type>
+			<url>/index.php?option=com_joomnik&amp;album=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_question">
+		<vulnerability>
+			<title>Joomla Component com_question SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/16995/</reference>
+			<type>SQLi</type>
+			<url>/index.php/?option=com_question&amp;catID=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_booklibrary">
+		<vulnerability>
+			<title>SQL Injection in component com_booklibrary for Joomla</title>
+			<reference>http://www.exploit-db.com/exploits/17288/</reference>
+			<type>SQLi</type>
+			<version>&lt;=2.0</version>
+			<url>/index.php?option=com_booklibrary&amp;task=search&amp;Itemid=53&amp;author=true&amp;title=true&amp;isbn=true&amp;description=true&amp;publisher=true&amp;bookid=true&amp;searchtext=%SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_jmsfileseller">
+		<vulnerability>
+			<title>Joomla Component com_jmsfileseller Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/17338/</reference>
+			<type>SQLi</type>
+			<version>1.0</version>
+			<url>index.php?option=com_jmsfileseller&amp;cat_id=1&amp;Itemid=27&amp;view=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_xcloner-backupandrestore">
+		<vulnerability>
+			<title>Joomla XCloner Component (com_xcloner-backupandrestore) Remote Command Execution</title>
+			<reference>http://www.exploit-db.com/exploits/16246/</reference>
+			<type>Code Exec</type>
+		</vulnerability>
+	</component>
+	<component name="com_b2portfolio">
+		<vulnerability>
+			<title>Joomla B2 Portfolio Component 1.0.0 Multiple SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/16039/</reference>
+			<type>SQLi</type>
+			<version>1.0.0</version>
+			<url>/index.php?option=com_b2portfolio&amp;c=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_allcinevid">
+		<vulnerability>
+			<title>allCineVid Joomla Component 1.0.0 Blind SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/16010/</reference>
+			<type>Blind SQLi</type>
+			<version>1.0.0</version>
+			<url>/index.php?option=com_allcinevid&amp;tmpl=component&amp;id=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_people">
+		<vulnerability>
+			<title>People Joomla Component 1.0.0 Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/16001/</reference>
+			<type>LFI</type>
+			<version>1.0.0</version>
+			<url>/index.php?option=com_people&amp;controller=LFI</url>
+		</vulnerability>
+		<vulnerability>
+			<title>People Joomla Component 1.0.0 SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15989/</reference>
+			<type>SQLi</type>
+			<version>1.0.0</version>
+			<url>/index.php?option=com_people&amp;controller=people&amp;task=details&amp;id=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_idoblog">
+		<vulnerability>
+			<title>Joomla Component (com_idoblog) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15827/</reference>
+			<type>SQLi</type>
+			<url>/index.php?option=com_idoblog&amp;task=profile&amp;Itemid=1337&amp;userid=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_xmovie">
+		<vulnerability>
+			<title>Joomla Component com_xmovie 1.0 Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15819/</reference>
+			<type>LFI</type>
+			<version>1.0</version>
+			<url>/components/com_xmovie/helpers/img.php?file=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_ponygallery">
+		<vulnerability>
+			<title>Joomla Component com_ponygallery Remote File Inclusion Vulnerabilities</title>
+			<reference>http://www.exploit-db.com/exploits/15814/</reference>
+			<type>RFI</type>
+			<url>/components/com_ponygallery/admin.ponygallery.html.php?mosConfig_absolute_path=RFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_adsmanager">
+		<vulnerability>
+			<title>Joomla Component com_adsmanager Remote File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15815/</reference>
+			<type>RFI</type>
+			<url>/index.php?option=com_adsmanager&amp;mosConfig_absolute_path=RFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_xgallery">
+		<vulnerability>
+			<title>Joomla Component com_xgallery 1.0 Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15801/</reference>
+			<type>LFI</type>
+			<version>1.0</version>
+			<url>/components/com_xgallery/helpers/img.php?file=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_jotloader">
+		<vulnerability>
+			<title>Joomla Component Jotloader 2.2.1 Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15791/</reference>
+			<type>LFI</type>
+			<version>&lt;=2.2.1</version>
+			<url>/index.php?option=com_jotloader&amp;section=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_jeauto">
+		<vulnerability>
+			<title>Joomla JE Auto Component (com_jeauto) LFI Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15779/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_jeauto&amp;view=LFI</url>
+		</vulnerability>
+	</component>
+	<!-- END OF PAGE 4 @ exploit-db.com -->
 	
 	<component name="com_jce">
 		<vulnerability>
-			<title>JCE Joomla Extension &amp;lt;=2.0.10 Multiple Vulnerabilities</title>
+			<title>JCE Joomla Extension &lt;=2.0.10 Multiple Vulnerabilities</title>
 			<reference>http://www.exploit-db.com/exploits/17734/</reference>
 			<type>File Upload</type>
-			<version>&amp;lt;=2.0.10</version>
+			<version>&lt;=2.0.10</version>
 		</vulnerability>
 		<vulnerability>
 			<title>Joomla JCE Component (com_jce) Blind SQL Injection Vulnerability</title>
@@ -308,45 +562,45 @@
 			<title>Joomla component com_gcalendar Suite v2.1.5 Local File Include</title>
 			<reference>http://www.exploit-db.com/exploits/11738/</reference>
 			<type>LFI</type>
-			<version>&amp;lt;=2.1.5</version>
+			<version>&lt;=2.1.5</version>
 		</vulnerability>
 		<vulnerability>
 			<title>Joomla Component com_gcalendar 1.1.2 (gcid) Remote SQL Injection Vulnerability</title>
 			<reference>http://www.exploit-db.com/exploits/10232/</reference>
 			<type>SQLi</type>
-			<version>&amp;lt;=1.1.2</version>
+			<version>&lt;=1.1.2</version>
 		</vulnerability>
 	</component>
 	<component name="com_virtuemart">
 		<vulnerability>
-			<title>Joomla! com_virtuemart &amp;lt;= v1.1.7 Blind SQL Injection Exploit</title>
+			<title>Joomla! com_virtuemart &lt;= v1.1.7 Blind SQL Injection Exploit</title>
 			<reference>http://www.exploit-db.com/exploits/17132/</reference>
 			<type>Blind SQLi</type>
-			<version>&amp;lt;=v1.1.7</version>
+			<version>&lt;=v1.1.7</version>
 		</vulnerability>
 		<vulnerability>
-			<title>Joomla 1.5 com_virtuemart &amp;lt;= 1.1.7 Blind time-based SQL Injection (MSF)</title>
+			<title>Joomla 1.5 com_virtuemart &lt;= 1.1.7 Blind time-based SQL Injection (MSF)</title>
 			<reference>http://www.exploit-db.com/exploits/17579/</reference>
 			<type>Blind time-based SQLi</type>
-			<version>&amp;lt;=1.1.7</version>
+			<version>&lt;=1.1.7</version>
 		</vulnerability>
 		<vulnerability>
 			<title>Joomla Component (com_virtuemart) order_status_id SQL Injection Vulnerability</title>
 			<reference>http://www.exploit-db.com/exploits/11271/</reference>
 			<type>SQLi</type>
-			<version>&amp;lt;=v1.1.4</version>
+			<version>&lt;=v1.1.4</version>
 		</vulnerability>
 		<vulnerability>
-			<title>VirtueMart &amp;lt;= 1.1.2 Multiple Remote Vulnerabilities</title>
+			<title>VirtueMart &lt;= 1.1.2 Multiple Remote Vulnerabilities</title>
 			<reference>http://www.exploit-db.com/exploits/8327/</reference>
 			<type>Multiple Remote Vulnerabilities</type>
-			<version>&amp;lt;=1.1.2</version>
+			<version>&lt;=1.1.2</version>
 		</vulnerability>
 		<vulnerability>
 			<title>Joomla Component com_virtuemart SQL injection vulnerability (product_id)</title>
 			<reference>http://www.exploit-db.com/exploits/10407/</reference>
 			<type>SQLi</type>
-			<version>&amp;lt;=1.0</version>
+			<version>&lt;=1.0</version>
 		</vulnerability>
 	</component>
 	<component name="com_jcalpro">
@@ -354,15 +608,15 @@
 			<title>Joomla Component com_jcalpro 1.5.3.6 Remote File Inclusion</title>
 			<reference>http://www.exploit-db.com/exploits/10587/</reference>
 			<type>LFI</type>
-			<version>&amp;lt;=1.5.3.6</version>
+			<version>&lt;=1.5.3.6</version>
 		</vulnerability>
 	</component>
 	<component name="com_k2">
 		<vulnerability>
-			<title>Joomla Component com_K2 &amp;lt;= 1.0.1b (category) SQL Injection Vuln</title>
+			<title>Joomla Component com_K2 &lt;= 1.0.1b (category) SQL Injection Vuln</title>
 			<reference>http://www.exploit-db.com/exploits/9030/</reference>
 			<type>SQLi</type>
-			<version>&amp;lt;=1.0.1</version>
+			<version>&lt;=1.0.1</version>
 		</vulnerability>
 	</component>
 	<component name="com_content">

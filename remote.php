@@ -3,12 +3,18 @@
 ini_set("display_errors", 1);
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 
-echo "<pre>";
-
-$host = "http://localhost/";
+echo "\n [-] Joomla Vulnerability Scanner (Remote) [-]\n\n";
+ 
+if($argc < 2) {
+	echo " Usage: php {$argv[0]} host\n";
+	echo " Example : php {$argv[0]} localhost \n\n";
+	exit(1);
+}
+ 
+$host = "http://".$argv[1]."/";
 $adminPath = "/administrator/components/";
 
-echo "[+] Scanning ".$host."\n";
+echo " [+] Scanning ".$host."\n";
 
 //Joomla https://www.gavick.com/magazine/how-to-check-the-version-of-joomla.html
 $siteSource = file_get_contents($host);
@@ -64,7 +70,7 @@ if(is_object($siteXmlLang )){
 if(strstr($siteMootools, 'MooTools.More={version:"1.4.0.1"') && !$joomlaVersion){
 	$joomlaVersion = "3.0 alpha 2";
 }
-echo "[+] Joomla ".$joomlaVersion."\n";
+echo " [+] Joomla ".$joomlaVersion."\n";
 //Find vulns
 $xmlCore = simplexml_load_string(file_get_contents("data/core_vulns.xml"));
 if(count($xmlCore->joomla)){
@@ -73,12 +79,15 @@ if(count($xmlCore->joomla)){
 		if(matchVersion($joomlaVersion, $joomla['version'])){
 			//Show vulns
 			foreach($joomla->vulnerability as $vulnerability){
-				echo "    [!] <a href='".$vulnerability->reference."'>".$vulnerability->title."</a>\n";
+				echo "     [!] ".$vulnerability->title."\n";
+				if($vulnerability->reference){
+					echo "        [!] Reference: ".$vulnerability->reference."\n";
+				}
 			}
 		}
 	}
 }else{
-	echo "[ ] Error loading core database";
+	echo " [ ] Error loading core database";
 }
 //Components
 $xmlComponents = simplexml_load_string(file_get_contents("data/components_vulns.xml"));
@@ -93,21 +102,24 @@ if(count($xmlComponents->component)){
 		if($remoteXmlComponent){
 			//Show version
 			$remoteXmlComponent = simplexml_load_string($remoteXmlComponent);
-			echo "[+] ".$component['name']." ".$remoteXmlComponent->version."\n";
+			echo " [+] ".$component['name']." ".$remoteXmlComponent->version."\n";
 			//Find vulns
 			if(count($component->vulnerability)){
 				foreach($component->vulnerability as $vulnerability){
 					//Vuln Version?
 					if(matchVersion($remoteXmlComponent->version, $vulnerability->version)){
 						//Show vuln
-						echo "    [!] <a href='".$vulnerability->reference."'>".$vulnerability->title."</a>\n";
+						echo "     [!] ".$vulnerability->title."\n";
+						if($vulnerability->reference){
+							echo "        [!] Reference: ".$vulnerability->reference."\n";
+						}
 					}
 				}
 			}
 		}
 	}
 }else{
-	echo "[ ] Error loading components database";
+	echo " [ ] Error loading components database";
 }
 
 function get_url_contents($url){
@@ -127,7 +139,7 @@ function matchVersion($version, $versionString){
 	//echo "[ ] ".$version." vs ".$versionString."\n";
 	$version = html_entity_decode(trim(strtolower($version)));
 	$versionString = html_entity_decode(trim(strtolower($versionString)));
-	if(!$versionString || !$version || $version=="unknown" || $versionString=="unknown"){
+	if(!$versionString || !$version || $version=="unknown" || $versionString=="unknown" || $version=="157"){
 		return 1;
 	}
 	if(strstr($versionString, "||")){
@@ -161,5 +173,4 @@ function matchVersion($version, $versionString){
 	}
 }
 
-echo "</pre>";
 ?>
