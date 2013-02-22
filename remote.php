@@ -1,8 +1,5 @@
 <?php
 
-ini_set("display_errors", 1);
-error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-
 echo "\n [-] Joomla Vulnerability Scanner (Remote) [-]\n\n";
  
 if($argc < 2) {
@@ -14,14 +11,14 @@ if($argc < 2) {
 $host = "http://".$argv[1]."/";
 $adminPath = "/administrator/components/";
 
-echo " [+] Scanning ".$host."\n";
+echo colorize(" [+] Scanning ".$host."\n\n", "SUCCESS");
 
 //Joomla https://www.gavick.com/magazine/how-to-check-the-version-of-joomla.html
-$siteSource = file_get_contents($host);
-$siteTemplateCss = file_get_contents($host."/templates/system/css/template.css");
-$siteSystemCss = file_get_contents($host."/templates/system/css/system.css");
-$siteMootools = file_get_contents($host."/media/system/js/mootools-more.js");
-$siteLang = file_get_contents($host."/language/en-GB/en-GB.ini");
+$siteSource = get_url_contents($host);
+$siteTemplateCss = get_url_contents($host."/templates/system/css/template.css");
+$siteSystemCss = get_url_contents($host."/templates/system/css/system.css");
+$siteMootools = get_url_contents($host."/media/system/js/mootools-more.js");
+$siteLang = get_url_contents($host."/language/en-GB/en-GB.ini");
 $joomlaVersion = "Unknown";
 //Joomla 1.0.x
 if(strstr($siteSource, '2005 - 2007 Open Source Matters')){
@@ -70,7 +67,7 @@ if(is_object($siteXmlLang )){
 if(strstr($siteMootools, 'MooTools.More={version:"1.4.0.1"') && !$joomlaVersion){
 	$joomlaVersion = "3.0 alpha 2";
 }
-echo " [+] Joomla ".$joomlaVersion."\n";
+echo colorize(" [+] Joomla ".$joomlaVersion."\n\n", "WARNING");
 //Find vulns
 $xmlCore = simplexml_load_string(file_get_contents("data/core_vulns.xml"));
 if(count($xmlCore->joomla)){
@@ -79,15 +76,12 @@ if(count($xmlCore->joomla)){
 		if(matchVersion($joomlaVersion, $joomla['version'])){
 			//Show vulns
 			foreach($joomla->vulnerability as $vulnerability){
-				echo "     [!] ".$vulnerability->title."\n";
-				if($vulnerability->reference){
-					echo "        [!] Reference: ".$vulnerability->reference."\n";
-				}
+				showVuln($vulnerability);
 			}
 		}
 	}
 }else{
-	echo " [ ] Error loading core database";
+	echo colorize(" [ ] Error loading core database", "FALIURE");
 }
 //Components
 $xmlComponents = simplexml_load_string(file_get_contents("data/components_vulns.xml"));
@@ -102,41 +96,48 @@ if(count($xmlComponents->component)){
 		if($remoteXmlComponent){
 			//Show version
 			$remoteXmlComponent = simplexml_load_string($remoteXmlComponent);
-			echo " [+] ".$component['name']." ".$remoteXmlComponent->version."\n";
+			echo colorize(" [+] ".$component['name']." ".$remoteXmlComponent->version."\n\n", "WARNING");
 			//Find vulns
 			if(count($component->vulnerability)){
 				foreach($component->vulnerability as $vulnerability){
 					//Vuln Version?
 					if(matchVersion($remoteXmlComponent->version, $vulnerability->version)){
-						//Show vuln
-						echo "     [!] ".$vulnerability->title."\n";
-						if($vulnerability->reference){
-							echo "        [!] Reference: ".$vulnerability->reference."\n";
-						}
+						showVuln($vulnerability);
 					}
 				}
 			}
 		}
 	}
 }else{
-	echo " [ ] Error loading components database";
+	echo colorize(" [ ] Error loading components database", "FALIURE");
+}
+
+echo colorize(" [+] Finished!\n\n", "SUCCESS");
+
+function showVuln($vulnerability){
+	echo "  | ".colorize("* ".$vulnerability->title."\n", "FAILURE");
+	//Refers
+	if($vulnerability->reference){
+		foreach($vulnerability->reference as $reference){
+			echo "  | ".colorize("* Reference: ".$reference."\n", "FAILURE");
+		}
+	}
+	echo "\n";
 }
 
 function get_url_contents($url){
-		//echo "[ ] ".$url."\n";
-        $crl = curl_init();
-        curl_setopt($crl, CURLOPT_URL, $url);
-        curl_setopt($crl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($crl, CURLOPT_CONNECTTIMEOUT, 5);
-        $r = curl_exec($crl);
-		$http_status = curl_getinfo($crl, CURLINFO_HTTP_CODE);
-        curl_close($crl);
-		if($http_status!="404")
-        	return $r;
+    $crl = curl_init();
+    curl_setopt($crl, CURLOPT_URL, $url);
+    curl_setopt($crl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($crl, CURLOPT_CONNECTTIMEOUT, 5);
+    $r = curl_exec($crl);
+	$http_status = curl_getinfo($crl, CURLINFO_HTTP_CODE);
+    curl_close($crl);
+	if($http_status!="404")
+    	return $r;
 }
 
 function matchVersion($version, $versionString){
-	//echo "[ ] ".$version." vs ".$versionString."\n";
 	$version = html_entity_decode(trim(strtolower($version)));
 	$versionString = html_entity_decode(trim(strtolower($versionString)));
 	if(!$versionString || !$version || $version=="unknown" || $versionString=="unknown" || $version=="157"){
@@ -171,6 +172,26 @@ function matchVersion($version, $versionString){
 	if(strstr($versionString, ">")){
 		return version_compare($version, str_replace(">", "", $versionString), ">");
 	}
+}
+
+function colorize($text, $status) {
+	//http://softkube.com/blog/generating-command-line-colors-with-php/
+	$out = "";
+ 	switch($status) {
+  		case "SUCCESS":
+   			$out = "[0;32m"; //Green background
+   		break;
+  		case "FAILURE":
+   			$out = "[0;31m"; //Red background
+   		break;
+  		case "WARNING":
+   			$out = "[1;33m"; //Yellow background
+   		break;
+  		case "NOTE":
+   			$out = "[0;34m"; //Blue background
+   		break;
+	}
+ 	return chr(27).$out.$text.chr(27)."[0m";
 }
 
 ?>
