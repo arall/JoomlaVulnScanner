@@ -638,7 +638,73 @@
 			<version>&lt;=1.5.6</version>
 		</vulnerability>
 	</component>
-	<!-- PAGE 5 (to end) @ exploit-db.com -->
+	<component name="com_img">
+		<vulnerability>
+			<title>Joomla Component (com_img) LFI Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15470/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_img&amp;controller=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_markt">
+		<vulnerability>
+			<title>Joomla Component (com_markt) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15469/</reference>
+			<type>SQL</type>
+			<url>/index.php?option=com_markt&amp;page=show_category&amp;catid=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="btg_oglas">
+		<vulnerability>
+			<title>Joomla Component (btg_oglas) HTML &amp; XSS Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15468/</reference>
+			<type>XSS</type>
+			<url>/index.php?option=btg_oglas&amp;id=XSS</url>
+		</vulnerability>
+	</component>
+	<component name="com_jquarks4s">
+		<vulnerability>
+			<title>Joomla Component JQuarks4s 1.0.0 Blind SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15466/</reference>
+			<type>SQLi</type>
+			<version>1.0.0</version>
+			<url>/index.php?option=com_jquarks4s&amp;task=submitSurvey&amp;q=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_dcnews">
+		<vulnerability>
+			<title>Joomla DCNews Component com_dcnews LFI Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15462/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_dcnews&amp;view=dcnews&amp;controller=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_pro_desk">
+		<vulnerability>
+			<title>Joomla Component ProDesk v1.5 Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15460/</reference>
+			<type>LFI</type>
+			<version>&lt;=1.5</version>
+			<url>/index.php?option=com_pro_desk&amp;include_file=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_clanlist">
+		<vulnerability>
+			<title>Joomla Component (com_clanlist) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15456/</reference>
+			<type>SQL</type>
+			<url>/index.php?option=com_clanlist&amp;clanId=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_clan">
+		<vulnerability>
+			<title>Joomla Component (com_clan) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15454/</reference>
+			<type>SQL</type>
+			<url>/index.php?action=com_clan&amp;cid=SQL</url>
+		</vulnerability>
+	</component>
+	<!-- END OF PAGE 5 @ exploit-db.com -->
 	
 	<component name="com_jce">
 		<vulnerability>
