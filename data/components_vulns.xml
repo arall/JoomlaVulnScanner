@@ -540,8 +540,105 @@
 			<type>LFI</type>
 			<url>/index.php?option=com_jeauto&amp;view=LFI</url>
 		</vulnerability>
+		<vulnerability>
+			<title>Joomla JE Auto Component 1.0 SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15714/</reference>
+			<type>SQLi</type>
+			<version>1.0</version>
+			<url>/index.php?option=com_jeauto&amp;catid=1&amp;item=1&amp;Itemid=3&amp;view=item&amp;char=SQL</url>
+		</vulnerability>
 	</component>
-	<!-- END OF PAGE 4 @ exploit-db.com -->
+	<component name="com_jradio">
+		<vulnerability>
+			<title>Joomla JRadio Component (com_jradio) Local File Inclusion</title>
+			<reference>http://www.exploit-db.com/exploits/15749/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_jradio&amp;controller=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_billyportfolio">
+		<vulnerability>
+			<title>Joomla Component Billy Portfolio 1.1.2 Blind SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/15721/</reference>
+			<type>SQLi</type>
+			<version>&lt;=1.1.2</version>
+			<url>/index.php?option=com_billyportfolio&amp;view=billyportfolio&amp;catid=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_jemessenger">
+		<vulnerability>
+			<title>JE Messenger 1.0 Arbitrary File Upload Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15719/</reference>
+			<type>File Upload</type>
+			<version>1.0</version>
+		</vulnerability>
+	</component>
+	<component name="com_jeajaxeventcalendar">
+		<vulnerability>
+			<title>Joomla JE Ajax Event Calendar Component (com_jeajaxeventcalendar) SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/15610/</reference>
+			<type>SQLi</type>
+			<version>&lt;=1.1.2</version>
+			<url>/index.php?option=com_jeajaxeventcalendar&amp;view=alleventlist_more&amp;event_id=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_jimtawl">
+		<vulnerability>
+			<title>Joomla Component (com_jimtawl) Local File Inclusion Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15585/</reference>
+			<type>LFI</type>
+			<url>/index.php?option=com_jimtawl&amp;Itemid=12&amp;task=LFI</url>
+		</vulnerability>
+	</component>
+	<component name="com_mtree">
+		<vulnerability>
+			<title>Mosets Tree 2.1.6 (Joomla) Template Overwrite CSRF</title>
+			<reference>http://www.exploit-db.com/exploits/15570/</reference>
+			<type>CSRF</type>
+		</vulnerability>
+	</component>
+	<component name="com_maianmedia">
+		<vulnerability>
+			<title>Joomla Maian Media Component (com_maianmedia) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15555/</reference>
+			<type>SQLi</type>
+			<url>/index.php?option=com_maianmedia&amp;view=music&amp;cat=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_alfurqan15x">
+		<vulnerability>
+			<title>Joomla Component (com_alfurqan15x) SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15549/</reference>
+			<type>SQLi</type>
+			<version>&lt;=2.2</version>
+			<url>/index.php?option=com_alfurqan15x&amp;action=viewayat&amp;surano=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_ccboard">
+		<vulnerability>
+			<title>Joomla Component ccBoard 1.2-RC Multiple Vulnerabilities</title>
+			<reference>http://www.exploit-db.com/exploits/15518/</reference>
+			<type>SQLi</type>
+			<version>&lt;=1.2</version>
+			<url>/index.php?option=com_ccboard&amp;view=myprofile&amp;cid=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_jsupport">
+		<vulnerability>
+			<title>Joomla Component com_jsupport SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15502/</reference>
+			<type>SQLi</type>
+			<version>&lt;=1.5.6</version>
+			<url>/index.php?option=com_jsupport&amp;task=listTickets=SQL</url>
+		</vulnerability>
+		<vulnerability>
+			<title>Joomla Component com_jsupport Critical XSS Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/15501/</reference>
+			<type>XSS</type>
+			<version>&lt;=1.5.6</version>
+		</vulnerability>
+	</component>
+	<!-- PAGE 5 (to end) @ exploit-db.com -->
 	
 	<component name="com_jce">
 		<vulnerability>
