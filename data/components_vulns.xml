@@ -16,7 +16,7 @@
 			<reference>http://www.bugsearch.net/en/11401/joomla-component-comacymailing-sql-injection-vulnerability.html</reference>
 			<type>SQLi</type>
 			<version>&lt;=1.7.2</version>
-			<url>/index.php?option=com_acymailing&gtask=archive&listid=[sqli]</url>
+			<url>/index.php?option=com_acymailing&lt;gtask=archive&lt;listid=[sqli]</url>
 		</vulnerability>
 	</component>
 	<component name="com_gantry">
