@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<joomla version="&lt;3.0.3">
+		<vulnerability>
+			<title>Joomla! 3.0.3 PHP Object Injection Vulnerability</title>
+			<reference>http://1337day.com/exploit/20715</reference>
+			<type>PHP Object Injection</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="&lt;3.0.2">
+		<vulnerability>
+			<title>Joomla! &lt;= 3.0.2 (highlight.php) PHP Object Injection Vulnerability</title>
+			<reference>http://1337day.com/exploit/20447</reference>
+			<type>PHP Object Injection</type>
+		</vulnerability>
+	</joomla>
 	<joomla version="2.5.1">
 		<vulnerability>
 			<title>Joomla 2.5.0-2.5.1 Time Based SQL Injection Exploit</title>

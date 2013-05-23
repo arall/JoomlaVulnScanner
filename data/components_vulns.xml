@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<component name="com_jnews">
+		<vulnerability>
+			<title>Joomla Jnews 8.0.1 Cross Site Scripting Vulnerability</title>
+			<reference>http://1337day.com/exploit/20773</reference>
+			<type>XSS</type>
+			<version>&lt;=8.0.1</version>
+			<url>/components/com_jnews/includes/openflashchart/open-flash-chart.swf?get-data=(function(){alert(document.cookie)})()</url>
+		</vulnerability>
+	</component>
+	<component name="com_acymailing">
+		<vulnerability>
+			<title>Joomla Component (com_acymailing) SQL Injection Vulnerability</title>
+			<reference>http://www.bugsearch.net/en/11401/joomla-component-comacymailing-sql-injection-vulnerability.html</reference>
+			<type>SQLi</type>
+			<version>&lt;=1.7.2</version>
+			<url>/index.php?option=com_acymailing&gtask=archive&listid=[sqli]</url>
+		</vulnerability>
+	</component>
+	<component name="com_gantry">
+		<vulnerability>
+			<title>Gantry Framework 3.0.10 (Joomla) Blind SQL Injection Exploit</title>
+			<reference>http://www.exploit-db.com/exploits/14911/</reference>
+			<type>SQLi</type>
+			<version>&lt;=3.0.10</version>
+		</vulnerability>
+	</component>
+	<component name="com_oziogallery2">
+		<vulnerability>
+			<title>Joomla component com_oziogallery2 / IMAGIN arbitrary file write</title>
+			<reference>http://www.exploit-db.com/exploits/10979/</reference>
+			<type>Arbitrary file write</type>
+			<url>/index.php?option=com_community&amp;view=profile&amp;userid=SQLi</url>
+		</vulnerability>
+	</component>
+	<component name="com_chronocontact">
+		<vulnerability>
+			<title>Joomla Component ChronoForms (com_chronocontact)</title>
+			<reference>http://www.exploit-db.com/exploits/12843/</reference>
+			<type>SQLi</type>
+			<url>/index.php?option=com_chronocontact&amp;itemid=SQL</url>
+		</vulnerability>
+	</component>
+	<component name="com_jcomments">
+		<vulnerability>
+			<title>Cross-site Scripting (XSS) Vulnerability in JComments Component for Joomla!</title>
+			<reference>https://www.htbridge.com/advisory/HTB22368</reference>
+			<type>XSS</type>
+			<version>&lt;=2.1.0.0</version>
+		</vulnerability>
+	</component>
+	<component name="com_community">
+		<vulnerability>
+			<title>Joomla! 'com_community' Component 'userid' Parameter SQL Injection Vulnerability</title>
+			<reference>http://www.securityfocus.com/bid/48983/info</reference>
+			<type>SQLi</type>
+			<version>&lt;2.0.4</version>
+			<url>/index.php?option=com_community&amp;view=profile&amp;userid=SQLi</url>
+		</vulnerability>
+	</component>
+	<component name="com_joomfish">
+		<vulnerability>
+			<title>Joomla Component com_joomfish sef plugin version &lt; 2.0.4 XSS Vuln</title>
+			<reference>http://inj3ct0rs.com/exploit/12298</reference>
+			<type>XSS</type>
+			<version>&lt;2.0.4</version>
+			<url>/index.php?option=anythingornothing=[XSS]</url>
+		</vulnerability>
+	</component>
+	<component name="com_myalbum">
+		<vulnerability>
+			<title>Joomla Component com_myalbum Blind Injection Vulnerability</title>
+			<reference>http://1337day.com/exploit/20761</reference>
+			<type>SQLi</type>
+			<url>index.php?option=com_myalbum&amp;album=1</url>
+		</vulnerability>
+	</component>
 	<component name="com_collector">
 		<vulnerability>
 			<title>Joomla com_collector Component Arbitrary File Upload Vulnerability</title>

@@ -26,6 +26,14 @@
 			<url>/plugins/editors/tinymce/jscripts/tiny_mce/plugins/tinybrowser/upload.php?type=file&amp;folder=</url>
 		</vulnerability>
 	</plugin>
+	<plugin name="tiny_mce">
+		<vulnerability>
+			<title>Joomla - IDoEditor Arbitrary File Upload Vulnerability</title>
+			<reference>http://1337day.com/exploit/20110</reference>
+			<joomlaVersion>1.5.12</joomlaVersion>
+			<url>/plugins/editors/idoeditor/themes/advanced/php/image.php</url>
+		</vulnerability>
+	</plugin>
 	<plugin name="captcha">
 		<vulnerability>
 			<title>Joomla Captcha Plugin &lt;= 4.5.1 Local File Disclosure Vulnerability</title>

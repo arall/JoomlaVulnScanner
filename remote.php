@@ -1,70 +1,59 @@
 <?php
 
-$startTime = explode(' ', microtime());
 
-echo "\n [-] Joomla Vulnerability Scanner (Remote) [-]\n\n";
- 
-//Help
-if($argc < 2) {
-	echo " Usage: php {$argv[0]} host\n";
-	echo " Example : php {$argv[0]} localhost \n\n";
-	exit(1);
-}
+$urls[] = "http://www.zone-h.org/archive/notifier=Hmei7";
 
-$host = "http://".$argv[1]."/";
-$adminPath = "/administrator/components/";
-
-echo colorize(" [+] Scanning ".$host."\n\n", "SUCCESS");
-
-$joomlaVersion = getJoomlaVersion($host);
-echo colorize(" [+] Joomla ".$joomlaVersion."\n\n", "WARNING");
-
-//Core Vulns
-$xmlCore = simplexml_load_string(file_get_contents("data/core_vulns.xml"));
-if(count($xmlCore->joomla)){
-	foreach($xmlCore->joomla as $joomla){
-		//Vuln Version?
-		if(matchVersion($joomlaVersion, $joomla['version'])){
-			//Show vulns
-			foreach($joomla->vulnerability as $vulnerability){
-				showVuln($vulnerability);
-			}
+$maxPage = 50;
+foreach($urls as $ui=>$url){
+	$notifier = end(explode("=", $url));
+	for($page=0; $page<=$maxPage; $page++){
+		$data = get_url_contents($url."/page=".$page);
+		if(strstr($data, "cryptogram")){
+			die(" [!] CAPTCHA \n\n");
 		}
-	}
-}else{
-	echo colorize(" [ ] Error loading core database", "FALIURE");
-}
-//Components Vulns
-$xmlComponents = simplexml_load_string(file_get_contents("data/components_vulns.xml"));
-if(count($xmlComponents->component)){
-	foreach($xmlComponents->component as $component){
-		//Try to read component.xml
-		$remoteXmlComponent = get_url_contents($host.$adminPath.$component['name']."/".end(explode("_", $component['name'])).".xml");
-		if(!$remoteXmlComponent){
-			//Try to read manifest.xml
-			$remoteXmlComponent = get_url_contents($host.$adminPath."manifest.xml");
-		}
-		if($remoteXmlComponent){
-			//Show version
-			$remoteXmlComponent = simplexml_load_string($remoteXmlComponent);
-			echo colorize(" [+] ".$component['name']." ".$remoteXmlComponent->version."\n\n", "WARNING");
-			//Find vulns
-			if(count($component->vulnerability)){
-				foreach($component->vulnerability as $vulnerability){
-					//Vuln Version?
-					if(matchVersion($remoteXmlComponent->version, $vulnerability->version)){
-						showVuln($vulnerability);
+		$data = preg_replace("/\s+/", " ", $data);
+		$sad = explode('"></td> <td></td> <td>', $data);
+		if(count($sad)){
+			foreach($sad as $i=>$p){
+				if($i>0){
+					$a = explode("</td>", $p);
+					$urly = current($a);
+					if($urly){
+						$urly = str_replace("http://","",$urly);
+						$urly = "http://".$urly;
+						$url = parse_url($urly);
+						$url = $url['host'];
+						scann($url);
 					}
 				}
 			}
 		}
 	}
-}else{
-	echo colorize(" [ ] Error loading components database", "FALIURE");
 }
 
-$endTime = explode(' ', microtime());
-echo colorize(" [+] Scan finished in ".round((($endTime[1] + $endTime[0]) - ($startTime[1] + $startTime[0])), 4)." seconds\n\n", "SUCCESS");
+
+function scann($host){
+	$host = "http://".$host."/";
+	$adminPath = "/administrator/components/";
+	echo colorize($host."\n", "SUCCESS");
+	//Components Vulns
+	$xmlComponents = simplexml_load_string(file_get_contents("data/components_vulns.xml"));
+	if(count($xmlComponents->component)){
+		foreach($xmlComponents->component as $component){
+			//Try to read component.xml
+			$remoteXmlComponent = get_url_contents($host.$adminPath.$component['name']."/".end(explode("_", $component['name'])).".xml");
+			if(!$remoteXmlComponent){
+				//Try to read manifest.xml
+				$remoteXmlComponent = get_url_contents($host.$adminPath."manifest.xml");
+			}
+			if($remoteXmlComponent){
+				//Show version
+				$remoteXmlComponent = simplexml_load_string($remoteXmlComponent);
+				echo " ".$component['name']." ".$remoteXmlComponent->version."\n";
+			}
+		}
+	}
+}
 
 function getJoomlaVersion($host){
 	//Joomla https://www.gavick.com/magazine/how-to-check-the-version-of-joomla.html
@@ -139,7 +128,7 @@ function get_url_contents($url){
     $crl = curl_init();
     curl_setopt($crl, CURLOPT_URL, $url);
     curl_setopt($crl, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($crl, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt($crl, CURLOPT_CONNECTTIMEOUT, 1);
     $r = curl_exec($crl);
 	$http_status = curl_getinfo($crl, CURLINFO_HTTP_CODE);
     curl_close($crl);
