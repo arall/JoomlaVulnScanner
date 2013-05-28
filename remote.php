@@ -128,11 +128,11 @@ function getJoomlaVersion($host){
 }
 
 function showVuln($vulnerability){
-	echo "  | ".colorize("* ".$vulnerability->title."\n", "FAILURE");
+	echo "  | ".colorize("* ".(string)$vulnerability->title."\n", "FAILURE");
 	//Refers
 	if($vulnerability->reference){
 		foreach($vulnerability->reference as $reference){
-			echo "  | ".colorize("* Reference: ".$reference."\n", "FAILURE");
+			echo "  | ".colorize("* Reference: ".(string)$reference."\n", "FAILURE");
 		}
 	}
 	echo "\n";

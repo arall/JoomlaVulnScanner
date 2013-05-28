@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<joomla version="&lt;3.0.3">
+	<joomla version="3.0.3">
 		<vulnerability>
 			<title>Joomla! 3.0.3 PHP Object Injection Vulnerability</title>
 			<reference>http://1337day.com/exploit/20715</reference>

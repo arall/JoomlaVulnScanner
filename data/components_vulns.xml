@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<component name="com_s5clanroster">
+		<vulnerability>
+			<title>Joomla S5 Clan Roster com_s5clanroster (index.php, id param) - SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/25410/</reference>
+			<type>SQLi</type>
+			<url>/index.php?option=com_s5clanroster&lt;view=s5clanroster&lt;layout=category&lt;task=category&lt;id=1[SQLI]</url>
+		</vulnerability>
+	</component>
+	<component name="dj_classifieds">
+		<vulnerability>
+			<title>Joomla DJ Classifieds Extension 2.0 - Blind SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/25248/</reference>
+			<type>SQLi</type>
+			<version>2.0</version>
+			<url>/index.php/dj-classifieds/ads/0/?limitstart=0&lt;se=1&lt;se_regs[0]=[SQLi]</url>
+		</vulnerability>
+	</component>
+	<component name="com_civicrm">
+		<vulnerability>
+			<title>CiviCRM for Joomla 4.2.2 - Remote Code Injection</title>
+			<reference>http://www.exploit-db.com/exploits/24969/</reference>
+			<type>Remote Code Injection</type>
+			<version>4.2.2</version>
+		</vulnerability>
+	</component>
 	<component name="com_jnews">
 		<vulnerability>
 			<title>Joomla Jnews 8.0.1 Cross Site Scripting Vulnerability</title>
