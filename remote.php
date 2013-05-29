@@ -45,7 +45,7 @@ if(count($xmlComponents->component)){
 		$remoteXmlComponent = get_url_contents($host.$adminPath.$component['name']."/".end(explode("_", $component['name'])).".xml");
 		if(!$remoteXmlComponent){
 			//Try to read manifest.xml
-			$remoteXmlComponent = get_url_contents($host.$adminPath."manifest.xml");
+			$remoteXmlComponent = get_url_contents($host.$adminPath.$component['name']."/"."manifest.xml");
 		}
 		if($remoteXmlComponent){
 			//Show version
