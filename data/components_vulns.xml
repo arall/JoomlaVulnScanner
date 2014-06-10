@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<component name="com_shoutbox">
+		<vulnerability>
+			<title>Joomla AJAX Shoutbox &lt;= 1.6 - Remote SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/32331/</reference>
+			<version>&lt;=1.6</version>
+			<type>SQLi</type>
+		</vulnerability>
+	</component>
+	<component name="com_komento">
+		<vulnerability>
+			<title>Joomla Komento Extension 1.7.2 - Stored XSS Vulnerabilities</title>
+			<reference>http://www.exploit-db.com/exploits/31174/</reference>
+			<version>1.7.2</version>
+			<type>XSS</type>
+		</vulnerability>
+	</component>
+	<component name="com_jvcomment">
+		<vulnerability>
+			<title>Joomla JV Comment Extension 3.0.2 (index.php, id param) - SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/31175/</reference>
+			<version>3.0.2</version>
+			<type>SQLi</type>
+		</vulnerability>
+	</component>
+	<component name="com_redshop">
+		<vulnerability>
+			<title>Joomla redSHOP Component 1.2 - SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/27532/</reference>
+			<version>1.2</version>
+			<type>SQLi</type>
+			<url>/index.php?tmpl=component&lt;option=com_redshop&lt;view=product&lt;task=addtocompare&lt;pid=24[SQLI]</url>
+		</vulnerability>
+	</component>
+	<component name="com_sectionex">
+		<vulnerability>
+			<title>Joomla Sectionex Component 2.5.96 - SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/27405/</reference>
+			<version>2.5.96</version>
+			<type>SQLi</type>
+		</vulnerability>
+	</component>
 	<component name="com_s5clanroster">
 		<vulnerability>
 			<title>Joomla S5 Clan Roster com_s5clanroster (index.php, id param) - SQL Injection</title>
@@ -57,7 +98,6 @@
 			<title>Joomla component com_oziogallery2 / IMAGIN arbitrary file write</title>
 			<reference>http://www.exploit-db.com/exploits/10979/</reference>
 			<type>Arbitrary file write</type>
-			<url>/index.php?option=com_community&amp;view=profile&amp;userid=SQLi</url>
 		</vulnerability>
 	</component>
 	<component name="com_chronocontact">
@@ -77,6 +117,12 @@
 		</vulnerability>
 	</component>
 	<component name="com_community">
+		<vulnerability>
+			<title>Joomla JomSocial Component 2.6 - Code Execution Exploit</title>
+			<reference>http://www.exploit-db.com/exploits/31435/</reference>
+			<version>&lt;=2.6</version>
+			<type>Code Execution</type>
+		</vulnerability>
 		<vulnerability>
 			<title>Joomla! 'com_community' Component 'userid' Parameter SQL Injection Vulnerability</title>
 			<reference>http://www.securityfocus.com/bid/48983/info</reference>
@@ -137,6 +183,12 @@
 		</vulnerability>
 	</component>
 	<component name="com_kunena">
+		<vulnerability>
+			<title>Joomla Kunena Component 3.0.4 - Persistent XSS</title>
+			<reference>http://www.exploit-db.com/exploits/32562/</reference>
+			<version>3.0.4</version>
+			<type>XSS</type>
+		</vulnerability>
 		<vulnerability>
 			<title>Joomla Kunena Component (index.php, search parameter) SQL Injection</title>
 			<reference>http://www.exploit-db.com/exploits/22153/</reference>
@@ -836,6 +888,13 @@
 		</vulnerability>
 	</component>
 	<component name="com_virtuemart">
+		<vulnerability>
+			<title>Joomla! VirtueMart Component 2.0.22a - SQL Injection</title>
+			<reference>http://www.exploit-db.com/exploits/27879/</reference>
+			<version>&lt;=2.0.22a</version>
+			<type>SQLi</type>
+			<url>/index.php?option=com_virtuemart&lt;view=user&lt;task=removeAddressST&lt;virtuemart_userinfo_id=16[SQLI]</url>
+		</vulnerability>
 		<vulnerability>
 			<title>Joomla! com_virtuemart &lt;= v1.1.7 Blind SQL Injection Exploit</title>
 			<reference>http://www.exploit-db.com/exploits/17132/</reference>

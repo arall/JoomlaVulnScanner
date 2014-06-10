@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <vulnerabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<joomla version="&lt;2.5.13 || &lt;3.1.4">
+		<vulnerability>
+			<title>Joomla Media Manager File Upload Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/27610/</reference>
+			<type>File Upload</type>
+		</vulnerability>
+	</joomla>
+	<joomla version="3.2.1">
+		<vulnerability>
+			<title>Joomla 3.2.1 - SQL Injection Vulnerability</title>
+			<reference>http://www.exploit-db.com/exploits/31459/</reference>
+			<type>SQLi</type>
+		</vulnerability>
+	</joomla>
 	<joomla version="3.0.3">
 		<vulnerability>
 			<title>Joomla! 3.0.3 PHP Object Injection Vulnerability</title>
